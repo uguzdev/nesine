@@ -4,28 +4,14 @@ const dotenv = require('dotenv')
 
 dotenv.config();
 
-module.exports = () => ({
-  mode: process.env.NODE_ENV || "development",
+module.exports = {
   entry: './src/index.js',
-  devServer: {
-    port: 3000,
-    hot: true,
-    open: true,
-  },
   module: {
     rules: [
       {
         test: /\.(js|jsx)$/,
         exclude: /node_modules/,
         use: 'babel-loader',
-      },
-      {
-        test: /\.(scss|css)$/i,
-        use: [
-          'style-loader',
-          'css-loader',
-          'sass-loader',
-        ],
       },
     ],
   },
@@ -38,6 +24,6 @@ module.exports = () => ({
     }),
   ],
   output: {
-    filename: '[name].[hash].js',
+    filename: '[name].[fullhash].js',
   },
-})
+}
