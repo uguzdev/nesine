@@ -1,6 +1,7 @@
-const HtmlWebpackPlugin = require('html-webpack-plugin')
-const webpack = require('webpack')
-const dotenv = require('dotenv')
+/* eslint-disable import/no-extraneous-dependencies */
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const webpack = require('webpack');
+const dotenv = require('dotenv');
 
 dotenv.config();
 
@@ -17,7 +18,7 @@ module.exports = {
   },
   plugins: [
     new webpack.DefinePlugin({
-        'process.env': JSON.stringify(dotenv.config().parsed),
+      'process.env': JSON.stringify(dotenv.config().parsed),
     }),
     new HtmlWebpackPlugin({
       template: './public/index.html',
@@ -26,4 +27,4 @@ module.exports = {
   output: {
     filename: '[name].[fullhash].js',
   },
-}
+};

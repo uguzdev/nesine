@@ -1,4 +1,5 @@
 module.exports = {
+  parser: '@babel/eslint-parser',
   env: {
     browser: true,
     es2021: true,
@@ -19,5 +20,6 @@ module.exports = {
   rules: {
     'prettier/prettier': 'error',
     'react/jsx-filename-extension': [1, { extensions: ['.js', '.jsx'] }],
+    'react/prop-types': 'off',
   },
 };
