@@ -1,5 +1,6 @@
-$nesine-yellow: #fc0;
+@import 'style/globals';
 
 body {
-    background: $nesine-yellow;
+  background: $nesine-yellow;
+  margin: 0;
 }
