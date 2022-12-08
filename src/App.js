@@ -1,10 +1,10 @@
-import React, { useState } from 'react';
+import React from 'react';
 import './App.scss';
 
-function App() {
-  const [text] = useState('Nesine Frontend Case');
+import HomePage from './pages/Home';
 
-  return <div>{text}</div>;
+function App() {
+  return <HomePage />;
 }
 
 export default App;
