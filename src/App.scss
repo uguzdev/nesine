@@ -1,5 +1,9 @@
 @import 'style/globals';
 
+* {
+  box-sizing: border-box;
+}
+
 body {
   background: $nesine-yellow;
   margin: 0;
