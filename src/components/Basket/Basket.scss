@@ -18,7 +18,7 @@
 
   @include for-phone-only {
     width: 100%;
-    height: 100vh;
+    height: 100%;
   }
 
   .betBasketHeader {
@@ -32,6 +32,8 @@
       background: none;
       text-decoration: underline;
       cursor: pointer;
+      font-size: 14px;
+      color: $black;
     }
   }
 
@@ -81,6 +83,9 @@
       padding: 10px;
       border-top: 1px solid $light-gray;
       max-height: 100px;
+      span:first-child {
+        font-weight: bold;
+      }
     }
   }
 }
@@ -93,5 +98,7 @@
     width: 150px;
     height: 50px;
     cursor: pointer;
+    color: $black;
+    font-size: 14px;
   }
 }
