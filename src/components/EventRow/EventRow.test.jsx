@@ -11,13 +11,13 @@ describe('BetRow Test', () => {
 
   fireEvent.click(endMatchButton);
 
-  const callBackProps = handleSelectBet.mock.lastCall;
+  const callBackProps = handleSelectBet.mock.lastCall[0];
 
-  it('Callback props length should be 3', () => {
-    expect(callBackProps.length).toBe(3);
+  it('Callback props object length should be 4', () => {
+    expect(Object.keys(callBackProps).length).toBe(4);
   });
 
   it('eventId should be 2001', () => {
-    expect(callBackProps[0]).toBe('2001');
+    expect(callBackProps.id).toBe('2001');
   });
 });

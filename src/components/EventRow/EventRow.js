@@ -53,7 +53,12 @@ function EventRowContent({
                 isSelected={column.id === selectedBetId}
                 onClick={() =>
                   handleSelectBet &&
-                  handleSelectBet(eventId, column.id, betRate)
+                  handleSelectBet({
+                    id: eventId,
+                    betTypeId: column.id,
+                    betRate,
+                    eventName: matchName,
+                  })
                 }
               />
             )}
