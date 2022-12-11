@@ -39,7 +39,7 @@ function VirtualEventTable({
             }}
             handleSelectBet={handleSelectBet}
             selectedBetId={
-              selectedBets?.find((bet) => bet.eventId === events[event.index].C)
+              selectedBets?.find((bet) => bet.id === events[event.index].C)
                 ?.betTypeId || null
             }
             event={events[event.index]}
