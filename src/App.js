@@ -1,7 +1,7 @@
 import React from 'react';
 import './App.scss';
 
-import HomePage from './pages/Home';
+import HomePage from './pages/Homepage';
 import BasketStore from './store/Basket';
 
 function App() {

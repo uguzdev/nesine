@@ -10,7 +10,7 @@ export const removeEvent = (eventId) => ({
   payload: eventId,
 });
 
-export const updateBetType = (payload) => ({
+export const updateBetType = (event) => ({
   type: 'UPDATE_BET_TYPE',
-  payload,
+  payload: event,
 });
