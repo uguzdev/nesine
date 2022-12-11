@@ -39,7 +39,7 @@ function Basket({ events, visible, handleToggleBasket }) {
     [events],
   );
 
-  const betItemsRef = useBasketAnimation();
+  const betItemsRef = useBasketAnimation(visible);
 
   return visible ? (
     <div className="betBasket">

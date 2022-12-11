@@ -1,7 +1,6 @@
-import { useLayoutEffect, useRef } from 'react';
+import { useEffect, useRef } from 'react';
 
-function useBasketAnimation() {
-  const previousItemCount = useRef(0);
+function useBasketAnimation(visible) {
   const betItemsRef = useRef();
 
   const scrollToBottom = () => {
@@ -11,23 +10,26 @@ function useBasketAnimation() {
     });
   };
 
-  const addedAnimation = () => {
-    if (betItemsRef.current) {
-      const addedItems = betItemsRef.current.children;
-      const isAddedNewItem = addedItems.length > previousItemCount.value;
+  function observerCallback(mutations) {
+    const addedNodes = mutations[0].addedNodes[0];
 
-      if (isAddedNewItem) {
-        scrollToBottom();
-
-        addedItems[addedItems.length - 1].classList.add('newItem');
-      }
-      previousItemCount.value = addedItems.length;
+    if (addedNodes) {
+      mutations[0]?.addedNodes[0]?.classList.add('newItem');
+      scrollToBottom();
     }
-  };
+  }
 
-  useLayoutEffect(() => {
-    addedAnimation();
-  }, [betItemsRef?.current?.children?.length]);
+  useEffect(() => {
+    const observer = new MutationObserver(observerCallback);
+
+    if (betItemsRef?.current) {
+      observer.observe(betItemsRef?.current, {
+        childList: true,
+      });
+    }
+
+    return () => observer.disconnect();
+  }, [visible]);
 
   return betItemsRef;
 }
